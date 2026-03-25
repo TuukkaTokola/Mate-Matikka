@@ -8,4 +8,4 @@
 
 ## Lähteet
 
-Kaikki käytetyt kuvat ja materiaalit löytyvät kansiosta /docs/lahteet.md
+- Kaikki käytetyt kuvat ja materiaalit löytyvät kansiosta /docs/lahteet.md
