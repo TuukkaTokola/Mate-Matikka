@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(#6dd5fa, #2980b9);
+  height: 100vh;
+}
+
+.logo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 120px;
+}
+
+.question {
+  font-size: 50px;
+  margin-top: 120px;
+  color: white;
+}
+
+.answers {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.fish {
+  background: orange;
+  padding: 20px 30px;
+  border-radius: 50px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#score {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: 25px;
+  color: white;
+}
