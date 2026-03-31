@@ -6,11 +6,12 @@ body {
   height: 100vh;
 }
 
-.logo {
+.Logo {
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 180px;
+  width: 100px;
+  opacity: 0.9;
 }
 
 .question {
