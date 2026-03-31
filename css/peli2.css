@@ -8,30 +8,37 @@ body {
 
 .logo {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 120px;
+  top: 10px;
+  left: 10px;
+  width: 180px;
 }
 
 .question {
-  font-size: 50px;
-  margin-top: 120px;
+  font-size: 60px;
+  margin-top: 180px;
   color: white;
+  font-weight: bold;
 }
 
 .answers {
   display: flex;
   justify-content: center;
-  gap: 30px;
-  margin-top: 60px;
+  gap: 40px;
+  margin-top: 80px;
 }
 
 .fish {
-  background: orange;
-  padding: 20px 30px;
+  background: linear-gradient(orange, darkorange);
+  padding: 25px 35px;
   border-radius: 50px;
   font-size: 30px;
   cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.fish:hover {
+  transform: scale(1.2);
 }
 
 #score {
@@ -40,4 +47,7 @@ body {
   right: 30px;
   font-size: 25px;
   color: white;
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 10px;
 }
