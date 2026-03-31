@@ -2,9 +2,9 @@ body {
   margin: 0;
   font-family: Arial;
   text-align: center;
-  background: url("../images/etusivukala.png") no-repeat center;
-  background-size: cover;
+  background: linear-gradient(#6dd5fa, #2980b9);
   height: 100vh;
+  overflow: hidden;
 }
 
 .Logo {
@@ -16,36 +16,30 @@ body {
 }
 
 .question {
-  font-size: 60px;
+  font-size: 50px;
   margin-top: 150px;
   color: white;
   font-weight: bold;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.4);
   display: inline-block;
-  padding: 20px 40px;
-  border-radius: 20px;
+  padding: 20px 50px;
+  border-radius: 25px;
 }
 
 .answers {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   margin-top: 80px;
 }
 
 .fish {
-  background: linear-gradient(#ffcc00, orange);
-  padding: 20px 30px;
-  border-radius: 50px;
+  background: orange;
+  padding: 25px 35px;
+  border-radius: 50%;
   font-size: 28px;
   cursor: pointer;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
   transition: 0.3s;
-  color: black;
-}
-
-.fish:hover {
-  transform: scale(1.2);
 }
 
 .fish:hover {
@@ -53,12 +47,12 @@ body {
 }
 
 #score {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  font-size: 25px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 22px;
   color: white;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   padding: 10px 20px;
   border-radius: 10px;
 }
