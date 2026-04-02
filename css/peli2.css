@@ -2,7 +2,8 @@ body {
   margin: 0;
   font-family: Arial;
   text-align: center;
-  background: linear-gradient(#6dd5fa, #2980b9);
+  background: url("../images/background.png") no-repeat center center;
+background-size: cover;
   height: 100vh;
   overflow: hidden;
 }
