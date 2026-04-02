@@ -88,3 +88,21 @@ body {
   0% { transform: translateY(0); }
   100% { transform: translateY(-100vh); }
 }
+.score-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(#2980b9, #2980b9);
+  padding: 15px 25px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* STARS */
+.stars {
+  font-size: 22px;
+  color: gold;
+  margin-bottom: 50px;
+}
