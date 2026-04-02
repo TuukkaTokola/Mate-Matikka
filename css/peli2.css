@@ -16,14 +16,14 @@ background-size: cover;
 }
 
 .question {
-  font-size: 40px;
+  font-size: 45px;
   margin-top: 150px;
   color: white;
   font-weight: bold;
-  background: rgba(0,0,0,0.5);
-  padding: 15px 40px;
+  background: rgba(0,0,0,0.35);
+  padding: 20px 60px;
   border-radius: 30px;
-  display: inline-block;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .answers {
@@ -43,6 +43,7 @@ background-size: cover;
 .fish img {
   width: 100%;
   display: block;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
 }
 
 .fish span {
@@ -50,7 +51,7 @@ background-size: cover;
   bottom: -35px;
   left: 50%;
   transform: translateX(-50%);
-  background: #f5e6c8;
+  background: #f5e6c8; 
   border-radius: 50%;
   width: 70px;
   height: 70px;
@@ -59,7 +60,7 @@ background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
 .fish:hover {
