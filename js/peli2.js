@@ -1,25 +1,20 @@
 let score = 0;
-let correctAnswer = 0;
+let correctAnswer;
 
 function newQuestion() {
-  let num1 = Math.floor(Math.random() * 11);
-  let num2 = Math.floor(Math.random() * (num1 + 1)); 
+  let a = Math.floor(Math.random() * 11);
+  let b = Math.floor(Math.random() * (a + 1));
 
-  correctAnswer = num1 - num2;
+  correctAnswer = a - b;
 
-  document.getElementById("question").innerText =
-    num1 + " - " + num2 + " = ?";
+  document.getElementById("question").innerText = a + " - " + b + " = ?";
 
-  generateAnswers();
-}
-
-function generateAnswers() {
   let answers = [correctAnswer];
 
   while (answers.length < 4) {
-    let random = Math.floor(Math.random() * 11);
-    if (!answers.includes(random)) {
-      answers.push(random);
+    let rand = Math.floor(Math.random() * 11);
+    if (!answers.includes(rand)) {
+      answers.push(rand);
     }
   }
 
@@ -27,25 +22,23 @@ function generateAnswers() {
 
   let fish = document.querySelectorAll(".fish");
 
-  fish.forEach((f, index) => {
-    f.innerText = answers[index];
-    f.style.background = "";
+  fish.forEach((f, i) => {
+    f.querySelector("span").innerText = answers[i];
   });
 }
 
 function checkAnswer(element) {
-  let value = parseInt(element.innerText);
+  let value = parseInt(element.querySelector("span").innerText);
 
   if (value === correctAnswer) {
-    element.style.background = "green";
+    element.style.transform = "scale(1.2)";
     score++;
-  } else {
-    element.style.background = "red";
   }
 
   document.getElementById("score").innerText = "Pisteet: " + score;
 
-  setTimeout(newQuestion, 1000);
+  setTimeout(() => {
+    element.style.transform = "scale(1)";
+    newQuestion();
+  }, 800);
 }
-
-newQuestion();

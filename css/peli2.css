@@ -7,109 +7,85 @@ body {
   overflow: hidden;
 }
 
-.Logo {
+.logo {
   position: absolute;
   top: 10px;
   left: 10px;
   width: 100px;
-  opacity: 0.9;
 }
 
+/* QUESTION */
 .question {
   font-size: 40px;
-  margin-top: 180px;
+  margin-top: 150px;
   color: white;
   font-weight: bold;
   background: rgba(0,0,0,0.5);
-  display: inline-block;
   padding: 15px 40px;
   border-radius: 30px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  display: inline-block;
 }
 
+/* ANSWERS */
 .answers {
   display: flex;
   justify-content: center;
-  gap: 70px;
-  margin-top: 100px;
+  gap: 60px;
+  margin-top: 80px;
 }
+
+/* FISH IMAGE */
 .fish {
   position: relative;
   width: 120px;
-  height: 60px;
-  background: orange;
-  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fish img {
+  width: 100%;
+}
+
+/* NUMBER */
+.fish span {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
-  cursor: pointer;
-  transition: 0.3s;
-  color: black;
-  animation: float 3s ease-in-out infinite;
+  font-weight: bold;
 }
 
-.fish::before {
-  content: "";
-  position: absolute;
-  left: 15px;
-  top: 20px;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 3px 0 black;
+.fish:hover {
+  transform: scale(1.1);
 }
 
-.fish::after {
-  content: "";
-  position: absolute;
-  right: -20px;
-  width: 0;
-  height: 0;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-left: 20px solid orange;
-}
-.fish:nth-child(1) { background: #ff7f50; }
-.fish:nth-child(2) { background: #ffd700; }
-.fish:nth-child(3) { background: #00c3ff; }
-.fish:nth-child(4) { background: #7bed9f; }
-
-.fish:nth-child(1)::after { border-left-color: #ff7f50; }
-.fish:nth-child(2)::after { border-left-color: #ffd700; }
-.fish:nth-child(3)::after { border-left-color: #00c3ff; }
-.fish:nth-child(4)::after { border-left-color: #7bed9f; }
-
-
-
+/* SCORE */
 #score {
   position: absolute;
   bottom: 20px;
   right: 20px;
   background: orange;
   padding: 10px 20px;
-  border-radius: 15px;
-  font-weight: bold;
+  border-radius: 10px;
 }
+
+/* BUBBLES */
 .bubbles span {
   position: absolute;
   bottom: -50px;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background: rgba(255,255,255,0.5);
   border-radius: 50%;
   animation: rise 10s infinite;
 }
-.bubbles span:nth-child(1) { left: 20%; animation-duration: 8s; }
-.bubbles span:nth-child(2) { left: 40%; animation-duration: 10s; }
-.bubbles span:nth-child(3) { left: 60%; animation-duration: 7s; }
-.bubbles span:nth-child(4) { left: 80%; animation-duration: 9s; }
-.bubbles span:nth-child(5) { left: 80%; animation-duration: 6s; }
-.bubbles span:nth-child(6) { left: 80%; animation-duration: 5s; }
-.bubbles span:nth-child(7) { left: 80%; animation-duration: 4s; }
-.bubbles span:nth-child(8) { left: 80%; animation-duration: 3s; }
-
 
 @keyframes rise {
   0% { transform: translateY(0); }
