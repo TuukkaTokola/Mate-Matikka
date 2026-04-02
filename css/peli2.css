@@ -73,3 +73,23 @@ body {
   padding: 10px 20px;
   border-radius: 10px;
 }
+.bubbles span {
+  position: absolute;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  opacity: 0.5;
+  border-radius: 50%;
+  animation: rise 10s infinite;
+}
+
+.bubbles span:nth-child(1) { left: 20%; animation-duration: 8s; }
+.bubbles span:nth-child(2) { left: 40%; animation-duration: 10s; }
+.bubbles span:nth-child(3) { left: 60%; animation-duration: 7s; }
+.bubbles span:nth-child(4) { left: 80%; animation-duration: 9s; }
+
+@keyframes rise {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
