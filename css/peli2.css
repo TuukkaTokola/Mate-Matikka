@@ -45,6 +45,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
   color: black;
+  animation: float 3s ease-in-out infinite;
 }
 
 .fish::after {
@@ -89,7 +90,7 @@ body {
 .bubbles span:nth-child(3) { left: 60%; animation-duration: 7s; }
 .bubbles span:nth-child(4) { left: 80%; animation-duration: 9s; }
 
-@keyframes rise {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-100vh); }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
