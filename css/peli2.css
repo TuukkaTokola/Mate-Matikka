@@ -16,14 +16,15 @@ body {
 }
 
 .question {
-  font-size: 50px;
-  margin-top: 150px;
+  font-size: 40px;
+  margin-top: 180px;
   color: white;
   font-weight: bold;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   display: inline-block;
-  padding: 20px 50px;
-  border-radius: 25px;
+  padding: 15px 40px;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .answers {
@@ -48,6 +49,18 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
+.fish::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 3px 0 black;
+}
+
 .fish::after {
   content: "";
   position: absolute;
@@ -67,6 +80,8 @@ body {
 .fish:nth-child(2)::after { border-left-color: #ffd700; }
 .fish:nth-child(3)::after { border-left-color: #00c3ff; }
 .fish:nth-child(4)::after { border-left-color: #7bed9f; }
+
+
 
 #score {
   position: absolute;
