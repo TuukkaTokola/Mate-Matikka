@@ -29,8 +29,8 @@ body {
 .answers {
   display: flex;
   justify-content: center;
-  gap: 50px;
-  margin-top: 80px;
+  gap: 70px;
+  margin-top: 100px;
 }
 .fish {
   width: 120px;
