@@ -33,23 +33,35 @@ body {
   margin-top: 100px;
 }
 .fish {
+  position: relative;
   width: 120px;
   height: 60px;
   background: orange;
-  border-radius: 50px; 
+  border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 26px;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
   color: black;
 }
 
-.fish:hover {
-  transform: scale(1.15);
+.fish::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 20px solid orange;
 }
+.fish:nth-child(1)::after { border-left-color: #ff7f50; }
+.fish:nth-child(2)::after { border-left-color: #ffd700; }
+.fish:nth-child(3)::after { border-left-color: #00c3ff; }
+.fish:nth-child(4)::after { border-left-color: #7bed9f; }
+
 
 #score {
   position: fixed;

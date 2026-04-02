@@ -1,58 +1,51 @@
-let correctAnswer = 0;
 let score = 0;
+let correctAnswer = 0;
 
-function checkAnswer(element) {
-    let value = Number(element.innerText);
+function newQuestion() {
+  let num1 = Math.floor(Math.random() * 11);
+  let num2 = Math.floor(Math.random() * (num1 + 1)); 
 
-    if (value === correctAnswer) {
-        element.style.background = "green";
-        score++;
-    } else {
-        element.style.background = "red";
-    }
+  correctAnswer = num1 - num2;
 
-    document.getElementById("score").innerText = "Pisteet: " + score;
+  document.getElementById("question").innerText =
+    num1 + " - " + num2 + " = ?";
 
-    setTimeout(() => {
-        resetColors();
-        generateQuestion();
-    }, 1000);
-}
-
-function resetColors() {
-    let fishes = document.querySelectorAll(".fish");
-    fishes.forEach(f => f.style.background = "orange");
-}
-
-function generateQuestion() {
-    let num1 = Math.floor(Math.random() * 10);
-    let num2 = Math.floor(Math.random() * num1);
-
-    correctAnswer = num1 - num2;
-
-    document.getElementById("question").innerText =
-        num1 + " - " + num2 + " = ?";
-
-    generateAnswers();
+  generateAnswers();
 }
 
 function generateAnswers() {
-    let answers = [correctAnswer];
+  let answers = [correctAnswer];
 
-    while (answers.length < 4) {
-        let wrong = Math.floor(Math.random() * 10);
-        if (!answers.includes(wrong)) {
-            answers.push(wrong);
-        }
+  while (answers.length < 4) {
+    let random = Math.floor(Math.random() * 11);
+    if (!answers.includes(random)) {
+      answers.push(random);
     }
+  }
 
-    answers.sort(() => Math.random() - 0.5);
+  answers.sort(() => Math.random() - 0.5);
 
-    let fishes = document.querySelectorAll(".fish");
+  let fish = document.querySelectorAll(".fish");
 
-    fishes.forEach((fish, i) => {
-        fish.innerText = answers[i];
-    });
+  fish.forEach((f, index) => {
+    f.innerText = answers[index];
+    f.style.background = "";
+  });
 }
 
-generateQuestion();
+function checkAnswer(element) {
+  let value = parseInt(element.innerText);
+
+  if (value === correctAnswer) {
+    element.style.background = "green";
+    score++;
+  } else {
+    element.style.background = "red";
+  }
+
+  document.getElementById("score").innerText = "Pisteet: " + score;
+
+  setTimeout(newQuestion, 1000);
+}
+
+newQuestion();
