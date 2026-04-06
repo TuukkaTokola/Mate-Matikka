@@ -108,3 +108,13 @@ background-size: cover;
   color: gold;
   margin-bottom: 50px;
 }
+
+@keyframes swim {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.fish {
+  animation: swim 3s ease-in-out infinite;
+}
