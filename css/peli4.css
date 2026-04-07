@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background: linear-gradient(to bottom, #23b84b 0%, #1d973d 45%, #146f2d 100%);
+  min-height: 100vh;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.top-banner {
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  background: #1d8d38;
+  border-radius: 18px;
+  padding: 18px 24px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.top-banner h1 {
+  margin: 0;
+  color: #ffe94d;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.game-board {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #f4f4f4;
+  border: 6px solid #47df73;
+  border-radius: 24px;
+  padding: 30px 30px 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.instruction-box {
+  width: fit-content;
+  margin: 0 auto 30px;
+  background: #1f9a3e;
+  color: white;
+  padding: 18px 40px;
+  border-radius: 18px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.instruction-box h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.number-card {
+  min-width: 90px;
+  padding: 18px 22px;
+  border: 3px solid #d0f145;
+  background: #c7f51d;
+  color: #2d7a18;
+  font-size: 2rem;
+  font-weight: 800;
+  border-radius: 18px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transform: rotate(-8deg);
+}
+
+.number-card:nth-child(2) { transform: rotate(10deg); }
+.number-card:nth-child(3) { transform: rotate(-14deg); }
+.number-card:nth-child(4) { transform: rotate(12deg); }
+.number-card:nth-child(5) { transform: rotate(-9deg); }
+.number-card:nth-child(6) { transform: rotate(11deg); }
+
+.answer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.answer-slot {
+  width: 110px;
+  height: 70px;
+  background: #a9efaf;
+  border: 3px solid #70bf83;
+  border-radius: 16px;
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.5),
+              0 4px 10px rgba(0,0,0,0.12);
+}
+
+.arrow {
+  font-size: 2rem;
+  color: #36d96b;
+  font-weight: bold;
+}
+
+.check-button-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.check-button {
+  background: #ffd93d;
+  color: #2d5f16;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 34px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+}
+
+.check-button:hover {
+  transform: scale(1.04);
+}
