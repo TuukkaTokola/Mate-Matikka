@@ -23,14 +23,16 @@ function newQuestion() {
   let fish = document.querySelectorAll(".fish");
 
   fish.forEach((f, i) => {
-    f.querySelector("span").innerText = answers[i];
+    let span = f.querySelector("span"); // 👈 تأكدنا نجيب span
+    if (span) {
+      span.innerText = answers[i];
+    }
   });
 }
 
 function checkAnswer(element) {
   let value = parseInt(element.querySelector("span").innerText);
 
-  // إزالة أي تأثير قديم
   document.querySelectorAll(".fish").forEach(f => {
     f.classList.remove("correct", "wrong");
   });
@@ -38,13 +40,24 @@ function checkAnswer(element) {
   if (value === correctAnswer) {
     element.classList.add("correct");
     score++;
-    playCorrectSound();
+
+    if (typeof playCorrectSound === "function") {
+      playCorrectSound();
+    }
+
   } else {
     element.classList.add("wrong");
-    playWrongSound();
+
+    if (typeof playWrongSound === "function") {
+      playWrongSound();
+    }
   }
 
   document.getElementById("score").innerText = "Pisteet: " + score;
 
-  setTimeout(newQuestion, 1000);
+  setTimeout(() => {
+    newQuestion();
+  }, 1000);
 }
+
+newQuestion(); 
