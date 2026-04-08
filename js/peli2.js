@@ -1,3 +1,16 @@
+let correctSound = new Audio("sounds/correct.mp3");
+let wrongSound = new Audio("sounds/wrong.mp3");
+
+function playCorrectSound() {
+  correctSound.currentTime = 0;
+  correctSound.play();
+}
+
+function playWrongSound() {
+  wrongSound.currentTime = 0;
+  wrongSound.play();
+}
+
 let score = 0;
 let correctAnswer;
 
