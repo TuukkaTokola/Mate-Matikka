@@ -30,15 +30,21 @@ function newQuestion() {
 function checkAnswer(element) {
   let value = parseInt(element.querySelector("span").innerText);
 
+  // إزالة أي تأثير قديم
+  document.querySelectorAll(".fish").forEach(f => {
+    f.classList.remove("correct", "wrong");
+  });
+
   if (value === correctAnswer) {
-    element.style.transform = "scale(1.2)";
+    element.classList.add("correct");
     score++;
+    playCorrectSound();
+  } else {
+    element.classList.add("wrong");
+    playWrongSound();
   }
 
   document.getElementById("score").innerText = "Pisteet: " + score;
 
-  setTimeout(() => {
-    element.style.transform = "scale(1)";
-    newQuestion();
-  }, 800);
+  setTimeout(newQuestion, 1000);
 }

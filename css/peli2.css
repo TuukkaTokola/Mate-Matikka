@@ -118,3 +118,11 @@ background-size: cover;
 .fish {
   animation: swim 3s ease-in-out infinite;
 }
+
+.fish.correct {
+  filter: drop-shadow(0 0 15px lime);
+}
+
+.fish.wrong {
+  filter: drop-shadow(0 0 15px red);
+}
