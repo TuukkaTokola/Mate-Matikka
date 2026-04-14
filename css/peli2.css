@@ -126,3 +126,20 @@ background-size: cover;
 .fish.wrong {
   filter: drop-shadow(0 0 15px red);
 }
+
+#musicBtn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#musicBtn:hover {
+  background: rgba(0,0,0,0.8);
+}

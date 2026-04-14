@@ -1,3 +1,19 @@
+let bgMusic = new Audio("sounds/bg.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.4;
+
+function startMusic() {
+  bgMusic.play();
+}
+
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play();
+  } else {
+    bgMusic.pause();
+  }
+}
+
 let correctSound = new Audio("sounds/correct.mp3");
 let wrongSound = new Audio("sounds/wrong.mp3");
 
@@ -44,6 +60,7 @@ function newQuestion() {
 }
 
 function checkAnswer(element) {
+  startMusic();
   let value = parseInt(element.querySelector("span").innerText);
 
   document.querySelectorAll(".fish").forEach(f => {
