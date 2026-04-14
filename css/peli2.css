@@ -142,6 +142,16 @@ background-size: cover;
 #musicBtn:hover {
   background: rgba(0,0,0,0.8);
 }
+.question-fish {
+  width: 500px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
 
 .question-box {
   position: relative;
