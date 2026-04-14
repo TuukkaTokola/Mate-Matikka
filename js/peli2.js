@@ -37,7 +37,15 @@ function newQuestion() {
   correctAnswer = a - b;
 
   document.getElementById("question").innerText = a + " - " + b + " = ?";
+  let questionFish = document.querySelector(".question-fish");
 
+if (questionFish) {
+  questionFish.classList.add("glow");
+
+  setTimeout(() => {
+    questionFish.classList.remove("glow");
+  }, 600);
+}
   let answers = [correctAnswer];
 
   while (answers.length < 4) {
