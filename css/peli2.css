@@ -43,7 +43,7 @@ background-size: cover;
 .fish img {
   width: 100%;
   display: block;
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.3));
 }
 
 .fish span {
