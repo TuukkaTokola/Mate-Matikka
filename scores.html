@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pisteet | Matematikka</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scores.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Matematikka logo">
+        <span class="logo-text">Matematikka</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">Etusivu</a>
+        <a href="pelit.html">Pelit</a>
+        <a href="scores.html" class="active">Pisteet</a>
+        <a href="info.html">Infosivu</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="scores-page">
+    <div class="container scores-layout">
+      <section class="content-card scores-intro">
+        <h1>Katso kuinka hyvin pärjäät!</h1>
+        <p>Pelien pisteet ja yhteispisteet näkyvät tällä sivulla.</p>
+      </section>
+
+      <section class="content-card score-box">
+        <h2>Pelien pisteet</h2>
+        <div id="score-list">
+          <p>Pisteet näkyvät täällä myöhemmin.</p>
+        </div>
+      </section>
+
+      <section class="content-card total-box">
+        <h2>Yhteispisteet</h2>
+        <p id="total-score">0</p>
+      </section>
+
+      <section class="emoji-scale">
+        <div class="emoji-points">
+          <span>0</span>
+          <span>→</span>
+          <span>10</span>
+          <span>→</span>
+          <span>20</span>
+          <span>→</span>
+          <span>30</span>
+          <span>→</span>
+          <span>40</span>
+          <span>→</span>
+          <span>50</span>
+          <span>→</span>
+          <span>60</span>
+          <span>→</span>
+          <span>70</span>
+        </div>
+
+        <div class="emoji-row">
+          <span>😢</span>
+          <span>→</span>
+          <span>😞</span>
+          <span>→</span>
+          <span>😐</span>
+          <span>→</span>
+          <span>🙂</span>
+          <span>→</span>
+          <span>😊</span>
+          <span>→</span>
+          <span>😁</span>
+          <span>→</span>
+          <span>😄</span>
+          <span>→</span>
+          <span>🤩</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/scores.js"></script>
+  <script>
+    loadScores();
+    setScore(1,10);
+    document.getElementById("score-list").innerHTML = scores[1];
+  </script>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Matematikka — Oppiminen on hauskaa!</p>
+    </div>
+  </footer>
+</body>
+</html>
