@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peli 5 | Matematikka</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/peli5.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-content">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png">
+      <span class="logo-text">Matematikka</span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Etusivu</a>
+      <a href="pelit.html" class="active">Pelit</a>
+      <a href="scores.html">Pisteet</a>
+      <a href="info.html">Infosivu</a>
+    </nav>
+  </div>
+</header>
+
+<main class="game-container">
+
+  <div class="content-card game-card">
+    <h1>Kertotaulu-ampuja</h1>
+
+    <div id="question">2 × 3 = ?</div>
+
+    <div id="answers">
+      <button class="answer"></button>
+      <button class="answer"></button>
+      <button class="answer"></button>
+      <button class="answer"></button>
+    </div>
+
+    <p id="feedback"></p>
+    <p>Pisteet: <span id="score">0</span>/10</p>
+  </div>
+
+</main>
+
+<script src="js/scores.js"></script>
+<script src="js/peli5.js"></script>
+</body>
+</html>
