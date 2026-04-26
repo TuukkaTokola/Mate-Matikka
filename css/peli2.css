@@ -214,3 +214,28 @@ background-size: cover;
     filter: drop-shadow(0 0 0px yellow);
   }
 }
+
+.back-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #ff7675;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.end-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #636e72;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
