@@ -56,16 +56,45 @@ main.game-container {
 }
 
 /* Pisteet */
-.score {
+.time-box,
+.score-box,
+.streak-box {
   position: absolute;
-  top: 12%;
-  right: 3.7%;
+  background: transparent;
   color: #ffffff;
-  font-size: clamp(1rem, 2vw, 1.6rem);
+  text-align: center;
   font-weight: 700;
   text-shadow: 2px 2px 0 #000000;
 }
 
+.time-box {
+  top: 7%;
+  left: 5%;
+}
+
+.score-box {
+  top: 7%;
+  right: 6%;
+}
+
+.streak-box {
+  top: 24%;
+  right: 6%;
+}
+
+.time-box h2,
+.score-box h2,
+.streak-box h2 {
+  color: #F5E27A;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  margin-bottom: 4px;
+}
+
+.time-box p,
+.score-box p,
+.streak-box p {
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
+}
 /* Vastausalue */
 .targets {
   position: absolute;
@@ -136,7 +165,7 @@ main.game-container {
   text-align: center;
 }
 
-/* Animaatio osumalle */
+
 .hit {
   animation: hitEffect 0.35s ease;
 }
@@ -199,4 +228,52 @@ main.game-container {
     min-width: 260px;
     font-size: 1.1rem;
   }
+}
+
+.game-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.96);
+  color: #222222;
+  padding: 28px;
+  border-radius: 24px;
+  text-align: center;
+  z-index: 200;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  min-width: 340px;
+}
+
+.game-message h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.game-message p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.message-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.message-buttons a,
+.message-buttons button {
+  background-color: #F5E27A;
+  color: #222222;
+  text-decoration: none;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
 }
