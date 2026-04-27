@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/peli5.css">
 </head>
+
 <body>
 
 <header class="site-header">
@@ -28,28 +29,42 @@
 
 <main class="game-container">
 
-  <div class="content-card game-card">
-    <<div class="content-card game-card">
-  <h1>Kertotaulu-ampuja</h1>
-  <p class="game-instruction">Ammu oikea vastaus!</p>
-
-  <div id="question" class="question">3 × 2 = ?</div>
-
-  <div id="answers" class="target-grid">
-    <button class="answer target"></button>
-    <button class="answer target"></button>
-    <button class="answer target"></button>
-    <button class="answer target"></button>
+  <!-- 🎯 Pelin otsikko -->
+  <div class="game-title">
+    Kertotaulu-ampuja
   </div>
 
-  <p id="feedback" class="feedback"></p>
-  <p class="score-text">Pisteet: <span id="score">0</span>/10</p>
-</div>
+  <div class="game-subtitle">
+    Ammu oikea vastaus!
+  </div>
+
+  <!-- 🧠 Kysymys -->
+  <div id="question" class="question">
+    2 × 3 = ?
+  </div>
+
+  <!-- 🎯 Vastaukset (taulujen kohdalle) -->
+  <div class="targets">
+
+    <button class="target-answer" id="a1"></button>
+    <button class="target-answer" id="a2"></button>
+    <button class="target-answer" id="a3"></button>
+    <button class="target-answer" id="a4"></button>
+
+  </div>
+
+  <!-- 💬 Palaute -->
+  <div id="feedback" class="feedback"></div>
+
+  <!-- ⭐ Pisteet -->
+  <div class="score">
+    Pisteet: <span id="score">0</span>/10
   </div>
 
 </main>
 
 <script src="js/scores.js"></script>
 <script src="js/peli5.js"></script>
+
 </body>
 </html>
