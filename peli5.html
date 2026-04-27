@@ -29,19 +29,22 @@
 <main class="game-container">
 
   <div class="content-card game-card">
-    <h1>Kertotaulu-ampuja</h1>
+    <<div class="content-card game-card">
+  <h1>Kertotaulu-ampuja</h1>
+  <p class="game-instruction">Ammu oikea vastaus!</p>
 
-    <div id="question">2 × 3 = ?</div>
+  <div id="question" class="question">3 × 2 = ?</div>
 
-    <div id="answers">
-      <button class="answer"></button>
-      <button class="answer"></button>
-      <button class="answer"></button>
-      <button class="answer"></button>
-    </div>
+  <div id="answers" class="target-grid">
+    <button class="answer target"></button>
+    <button class="answer target"></button>
+    <button class="answer target"></button>
+    <button class="answer target"></button>
+  </div>
 
-    <p id="feedback"></p>
-    <p>Pisteet: <span id="score">0</span>/10</p>
+  <p id="feedback" class="feedback"></p>
+  <p class="score-text">Pisteet: <span id="score">0</span>/10</p>
+</div>
   </div>
 
 </main>
