@@ -18,7 +18,7 @@ main.game-container {
 /* Otsikko */
 .game-title {
   position: absolute;
-  top: 3%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
   font-size: clamp(2rem, 4vw, 4rem);
@@ -68,18 +68,18 @@ main.game-container {
 }
 
 .time-box {
-  top: 7%;
-  left: 5%;
+  top: 9.5%;
+  left: 6%;
 }
 
 .score-box {
-  top: 7%;
-  right: 6%;
+  top: 10%;
+  right: 5%;
 }
 
 .streak-box {
-  top: 24%;
-  right: 6%;
+  top: 24.5%;
+  right: 4.6%;
 }
 
 .time-box h2,
@@ -110,10 +110,10 @@ main.game-container {
 }
 
 /* Maalitaulujen keskikohdat */
-#a1 { top: 72%; left: 22%; }
-#a2 { top: 72%; left: 40%; }
-#a3 { top: 72%; left: 58%; }
-#a4 { top: 72%; left: 76%; }
+#a1 { top: 75%; left: 22.4%; }
+#a2 { top: 75%; left: 40.6%; }
+#a3 { top: 75%; left: 59.3%; }
+#a4 { top: 75%; left: 77.1%; }
 
 .target-answer {
   width: 120px;
