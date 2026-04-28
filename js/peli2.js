@@ -95,7 +95,10 @@ function checkAnswer(element) {
 
   let value = parseInt(element.querySelector("span").innerText);
 
-  document.querySelectorAll(".fish").forEach(f => {
+  let allFish = document.querySelectorAll(".fish");
+
+  // 
+  allFish.forEach(f => {
     f.classList.remove("correct", "wrong");
   });
 
@@ -111,7 +114,14 @@ function checkAnswer(element) {
   document.getElementById("score").innerText = "Pisteet: " + score;
 
   setTimeout(() => {
+
+    // here i REMOVED THE COLORS  AFTER showing feedback
+    allFish.forEach(f => {
+      f.classList.remove("correct", "wrong");
+    });
+
     newQuestion();
+
   }, 1000);
 }
 
