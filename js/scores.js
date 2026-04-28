@@ -43,4 +43,15 @@ function showScores() {
   totalScore.textContent = total;
 }
 
+function resetScores() {
+  localStorage.removeItem("storedScores");
+  location.reload();
+}
+
+const resetBtn = document.getElementById("reset-scores-btn");
+
+if (resetBtn) {
+  resetBtn.onclick = resetScores;
+}
+
 showScores();

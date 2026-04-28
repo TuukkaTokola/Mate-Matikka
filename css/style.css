@@ -215,3 +215,16 @@ main {
     width: min(420px, 80vw);
   }
 }
+#reset-scores-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #F5E27A;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#reset-scores-btn:hover {
+  opacity: 0.9;
+}
