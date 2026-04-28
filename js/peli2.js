@@ -60,7 +60,7 @@ if (questionFish) {
   let fish = document.querySelectorAll(".fish");
 
   fish.forEach((f, i) => {
-    let span = f.querySelector("span"); // 👈 تأكدنا نجيب span
+    let span = f.querySelector("span");
     if (span) {
       span.innerText = answers[i];
     }
@@ -83,6 +83,13 @@ function checkAnswer(element) {
       playCorrectSound();
     }
 
+    if (score >= 10) {
+      setTimeout(() => {
+        endGame();
+      }, 500);
+      return;
+    }
+
   } else {
     element.classList.add("wrong");
 
@@ -97,7 +104,6 @@ function checkAnswer(element) {
     newQuestion();
   }, 1000);
 }
-
 newQuestion(); 
 
 function goHome() {
