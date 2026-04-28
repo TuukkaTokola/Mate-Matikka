@@ -1,0 +1,279 @@
+/* ===== PELI 5: KERTOTAULU-AMPUJA ===== */
+
+main.game-container {
+  padding: 0;
+}
+
+.game-container {
+  min-height: calc(100vh - 80px);
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background-image: url("../images/peli5-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* Otsikko */
+.game-title {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 3px 3px 0 #222222;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Ohjeteksti */
+.game-subtitle {
+  position: absolute;
+  top: 17.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #222222;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Kysymys */
+.question {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(430px, 60vw);
+  color: #ffffff;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 3px 3px 0 #000000;
+}
+
+/* Pisteet */
+.time-box,
+.score-box,
+.streak-box {
+  position: absolute;
+  background: transparent;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 700;
+  text-shadow: 2px 2px 0 #000000;
+}
+
+.time-box {
+  top: 9.5%;
+  left: 6%;
+}
+
+.score-box {
+  top: 10%;
+  right: 5%;
+}
+
+.streak-box {
+  top: 24.5%;
+  right: 4.6%;
+}
+
+.time-box h2,
+.score-box h2,
+.streak-box h2 {
+  color: #F5E27A;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  margin-bottom: 4px;
+}
+
+.time-box p,
+.score-box p,
+.streak-box p {
+  font-size: clamp(1.3rem, 2.3vw, 2rem);
+}
+/* Vastausalue */
+.targets {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#a1, #a2, #a3, #a4 {
+  position: absolute;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+/* Maalitaulujen keskikohdat */
+#a1 { top: 75%; left: 22.4%; }
+#a2 { top: 75%; left: 40.6%; }
+#a3 { top: 75%; left: 59.3%; }
+#a4 { top: 75%; left: 77.1%; }
+
+.target-answer {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: #222222;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  cursor: pointer;
+  text-shadow: 2px 2px 0 #ffffff;
+  transition: filter 0.15s ease;
+}
+
+.target-answer:hover {
+  filter: drop-shadow(0 0 12px #F5E27A);
+}
+
+.target-answer.correct {
+  color: #ffffff;
+  background-color: rgba(76, 175, 80, 0.85);
+  box-shadow: 0 0 25px #4CAF50;
+}
+
+.target-answer.wrong {
+  color: #ffffff;
+  background-color: rgba(229, 57, 53, 0.85);
+  box-shadow: 0 0 25px #E53935;
+}
+
+/* Palaute */
+.feedback:empty {
+  display: none;
+}
+
+.feedback {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 360px;
+  background-color: rgba(20, 60, 35, 0.9);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 14px 24px;
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+
+.hit {
+  animation: hitEffect 0.35s ease;
+}
+
+@keyframes hitEffect {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .game-container {
+    min-height: calc(100vh - 80px);
+    background-position: center top;
+  }
+
+  .game-title {
+    top: 4%;
+    font-size: 2rem;
+  }
+
+  .game-subtitle {
+    top: 14%;
+    font-size: 1rem;
+  }
+
+  .question {
+    top: 34%;
+    width: 75vw;
+    font-size: 2.5rem;
+  }
+
+  #a1 { top: 60%; left: 30%; }
+  #a2 { top: 60%; left: 70%; }
+  #a3 { top: 78%; left: 30%; }
+  #a4 { top: 78%; left: 70%; }
+
+  .target-answer {
+    width: 90px;
+    height: 90px;
+    font-size: 2rem;
+  }
+
+  .score {
+    top: 9%;
+    bottom: 2%;
+    right: 8%;
+    font-size: 1rem;
+  }
+
+  .feedback {
+    bottom: 10%;
+    min-width: 260px;
+    font-size: 1.1rem;
+  }
+}
+
+.game-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.96);
+  color: #222222;
+  padding: 28px;
+  border-radius: 24px;
+  text-align: center;
+  z-index: 200;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  min-width: 340px;
+}
+
+.game-message h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.game-message p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.message-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.message-buttons a,
+.message-buttons button {
+  background-color: #F5E27A;
+  color: #222222;
+  text-decoration: none;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
