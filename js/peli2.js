@@ -111,7 +111,7 @@ function checkAnswer(element) {
     playWrongSound();
   }
 
-  document.getElementById("score").innerText = "Pisteet: " + score;
+  document.getElementById("score").innerText = "Pisteet: " + score + " / " + maxQuestions;
 
   setTimeout(() => {
 
@@ -131,7 +131,7 @@ function endGame() {
     setScore(1, score);
   } 
   document.getElementById("gameOverScreen").style.display = "flex";
-  document.getElementById("finalScore").innerText = "Pisteesi: " + score;
+  document.getElementById("finalScore").innerText = "Pisteesi: " + score + " / " + maxQuestions;
 
   let stars = "";
 
