@@ -226,6 +226,37 @@ main {
   cursor: pointer;
 }
 
+.emoji-points,
+.emoji-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.emoji-points {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.emoji-row {
+  font-size: 1.5rem;
+}
+
+.emoji-points span,
+.emoji-row span {
+  display: inline-block;
+  min-width: 48px;
+  text-align: center;
+}
+
+#reset-scores-btn {
+  display: block;
+  width: min(1200px, 92%);
+  margin: 28px auto 0;
+}
+
 #reset-scores-btn:hover {
   opacity: 0.9;
 }
