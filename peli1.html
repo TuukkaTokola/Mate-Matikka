@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <title>Matikkapeli</title>
+    <link rel="stylesheet" href="css/peli1.css">
+</head>
+<body>
+
+    <div class="game">
+        <h1>Laske ja valitse oikein!</h1>
+
+        <!-- PISTEET -->
+        <p id="score">Pisteet: 0 / 10</p>
+
+        <!-- KYSYMYS -->
+        <p id="question"></p>
+
+        <!-- VASTAUKSET -->
+        <div class="answers">
+            <button onclick="checkAnswer(this)" id="btn1"></button>
+            <button onclick="checkAnswer(this)" id="btn2"></button>
+            <button onclick="checkAnswer(this)" id="btn3"></button>
+        </div>
+
+        <!-- TULOS -->
+        <p id="result"></p>
+
+        <button onclick="newQuestion()" class="game-btn next-btn">
+        ➡️ Uusi tehtävä
+        </button>
+
+        <!-- RESTART -->
+        <button id="restartBtn" onclick="restartGame()" style="display:none;">
+            Pelaa uudestaan 🔄
+        </button>
+
+        <!-- PISTESIVULLE -->
+        <button id="scorePageBtn" onclick="goToScore()" class="game-btn score-btn" style="display:none;">
+        🏆 Mene pisteisiin
+        </button>
+
+    </div>
+
+    <script src="js/scores.js"></script>
+    <script src="js/peli1.js"></script>
+</body>
+</html>
