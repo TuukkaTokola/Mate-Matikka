@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelit | Suuryhtpien</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/peli3.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Matematikka logo">
+        <span class="logo-text">Matematikka</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">Etusivu</a>
+        <a href="pelit.html" class="active">Pelit</a>
+        <a href="scores.html">Pisteet</a>
+        <a href="info.html">Infosivu</a>
+      </nav>
+    </div>
+  </header>
+
+  
+<main class="game" id="gameArea">
+    <h2>SUURYHTPIENPELI<br>Valitse oikea merkki.</h2>
+
+    <div class="numbers">
+      <span id="leftNumber">0</span>
+
+      <div class="buttons">
+        <button onclick="checkAnswer('>')">&gt;</button>
+        <button onclick="checkAnswer('=')">=</button>
+        <button onclick="checkAnswer('<')">&lt;</button>
+      </div>
+
+      <span id="rightNumber">0</span>
+    </div>
+
+    <div class="score">
+      Pisteet: <span id="points">0</span>/10
+    </div>
+  </main>
+
+<div class="end-screen hidden" id="endScreen">
+  <h2>Peli päättyi!</h2>
+  <p>Sait <strong><span id="finalScore">0</span>/10</strong> pistettä</p>
+
+<a href="peli3.html"><button>Pelaa uudestaan</button></a>
+<a href="pelit.html"><button>Pelit</button></a>
+<a href="scores.html"><button>Pisteet</button></a>
+</div>
+
+  <script src="js/scores.js"></script>
+  <script src="js/peli3.js"></script>
+</body>
+</html>
