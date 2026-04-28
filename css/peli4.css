@@ -180,3 +180,26 @@ git push origin feature/peli4
 .answer-slot {
   min-height: 70px;
 }
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: #092b1b;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  background: #f0f0f0;
+}

@@ -5,6 +5,12 @@ const cards = document.querySelectorAll(".number-card");
 const slots = document.querySelectorAll(".answer-slot");
 const checkButton = document.querySelector(".check-button");
 
+const backButton = document.getElementById("back-button");
+
+backButton.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
 // feedback
 const feedbackBox = document.getElementById("feedback-box");
 const feedbackScore = document.getElementById("feedback-score");
