@@ -2,6 +2,10 @@ let bgMusic = new Audio("sounds/bg.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.4;
 
+window.onload = function () {
+  loadScores();
+};
+
 function startMusic() {
   bgMusic.play();
 }
@@ -113,6 +117,9 @@ function checkAnswer(element) {
 
 // peli loppu
 function endGame() {
+  if (score > scores[1]) {
+    setScore(1, score);
+  } 
   document.getElementById("gameOverScreen").style.display = "flex";
   document.getElementById("finalScore").innerText = "Pisteesi: " + score;
 
