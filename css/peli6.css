@@ -1,0 +1,129 @@
+.games-page {
+  padding: 40px 0 60px;
+}
+
+.games-intro {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.games-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.games-intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.game-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.level-card {
+  border-radius: 28px;
+  padding: 28px 32px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.level-card h2 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.level-buttons {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.level-button {
+  display: inline-block;
+  background-color: #FFFFFF;
+  color: #222222;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.level-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.level-card-1 {
+  background-color: #8EE4AF;
+}
+
+.level-card-2 {
+  background-color: #F5E27A;
+}
+
+.level-card-3 {
+  background-color: #FF7B7B;
+}
+
+@media (max-width: 768px) {
+  .games-intro h1 {
+    font-size: 2rem;
+  }
+
+  .level-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .level-buttons {
+    flex-direction: column;
+  }
+
+  .level-button {
+    text-align: center;
+  }
+
+  .game-area {
+  text-align: center;
+}
+
+.question {
+  font-size: 2rem;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+#answer {
+  padding: 12px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  border: none;
+  margin-right: 10px;
+  width: 120px;
+  text-align: center;
+}
+
+#feedback {
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+#result-section {
+  text-align: center;
+}
+
+#result-section h2 {
+  margin-bottom: 15px;
+}
+
+#game-controls {
+  display: none;
+}
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peli 6 | Matematikka</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/peli6.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-content">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Matematikka logo">
+      <span class="logo-text">Matematikka</span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="index.html">Etusivu</a>
+      <a href="pelit.html" class="active">Pelit</a>
+      <a href="scores.html">Pisteet</a>
+      <a href="info.html">Infosivu</a>
+    </nav>
+  </div>
+</header>
+
+<main class="games-page">
+  <div class="container">
+
+    <section class="games-hero">
+      <div class="container">
+        <div class="content-card games-intro">
+          <h1>Jakolaskupeli</h1>
+        <p>Valitse taso ja ratkaise jakolaskuja mahdollisimman nopeasti!</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-card game-area">
+      <h2 id="level-title">Valitse taso</h2>
+
+      <div class="level-buttons">
+        <button class="level-button" onclick="startGame(1)">Helppo</button>
+        <button class="level-button" onclick="startGame(2)">Keskitaso</button>
+        <button class="level-button" onclick="startGame(3)">Vaikea</button>
+      </div>
+
+      <div id="game-section" class="hidden">
+        <p class="question" id="question"></p>
+
+        <div id="game-controls">
+            <input type="number" id="answer" placeholder="Vastauksesi">
+            <button class="primary-button" onclick="checkAnswer()">Vastaa</button>
+        </div>
+
+        <p id="feedback"></p>
+        <p>Kysymykset: <span id="progress">0</span> / 10</p>
+        <p>Pisteet: <span id="score">0</span></p>
+        </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© Matematikka — Oppiminen on hauskaa!</p>
+  </div>
+</footer>
+
+<script src="js/scores.js"></script>
+<script src="js/peli6.js"></script>
+</body>
+</html>
