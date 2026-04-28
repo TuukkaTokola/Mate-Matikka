@@ -132,3 +132,51 @@ git push origin feature/peli4
 .check-button:hover {
   transform: scale(1.04);
 }
+
+.correct {
+  background-color: #6ee07a !important;
+  border-color: #2e9e44 !important;
+}
+
+.wrong {
+  background-color: #ff7b7b !important;
+  border-color: #c0392b !important;
+}
+
+#feedback-box {
+  margin-top: 20px;
+}
+
+#feedback-emoji {
+  margin-top: 10px;
+}
+
+.number-card {
+  cursor: grab;
+}
+
+.number-card:active {
+  cursor: grabbing;
+}
+
+.answer-slot {
+  transition: all 0.2s ease;
+}
+
+.answer-slot:hover {
+  transform: scale(1.05);
+  background: #c8f7c5;
+}
+
+.answer-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.answer-slot {
+  min-height: 70px;
+}
