@@ -11,10 +11,14 @@ const feedbackScore = document.getElementById("feedback-score");
 const feedbackEmoji = document.getElementById("feedback-emoji");
 
 // ==========================
-// DRAG STATE
+// GAME STATE
 // ==========================
 let draggedCard = null;
 let currentIndex = 0;
+
+let round = 1;
+let maxRounds = 10;
+let totalPoints = 0;
 
 // ==========================
 // DRAG START
@@ -26,18 +30,18 @@ cards.forEach(card => {
 });
 
 // ==========================
-// DROP ZONE LOGIC
+// DROP ZONE
 // ==========================
 slots.forEach(slot => {
 
   slot.addEventListener("dragover", (e) => {
-    e.preventDefault(); // pakollinen
+    e.preventDefault();
   });
 
   slot.addEventListener("drop", () => {
     if (!draggedCard) return;
 
-    // jos slotissa jo jotain → palauta vanha kortti
+    // jos slotissa jo kortti → palauta vanha
     if (slot.textContent !== "") {
       cards.forEach(card => {
         if (card.textContent === slot.textContent) {
@@ -48,17 +52,17 @@ slots.forEach(slot => {
 
     slot.textContent = draggedCard.textContent;
     draggedCard.style.visibility = "hidden";
-
-    currentIndex++;
   });
 });
 
+// ==========================
+// POISTA SLOTISTA (CLICK)
+// ==========================
 slots.forEach(slot => {
   slot.addEventListener("click", () => {
 
     if (slot.textContent === "") return;
 
-    // palautetaan kortti näkyviin
     cards.forEach(card => {
       if (card.textContent === slot.textContent) {
         card.style.visibility = "visible";
@@ -67,13 +71,11 @@ slots.forEach(slot => {
 
     slot.textContent = "";
     slot.classList.remove("correct", "wrong");
-
-    currentIndex--;
   });
 });
 
 // ==========================
-// RANDOM CARDS
+// RANDOM CARDS (NO DUPES)
 // ==========================
 function generateCards() {
   let values = new Set();
@@ -95,7 +97,7 @@ function generateCards() {
 }
 
 // ==========================
-// ASETA KORTIT
+// SET CARDS
 // ==========================
 function setCards() {
   let newCards = generateCards();
@@ -107,7 +109,7 @@ function setCards() {
   });
 }
 
-
+// ==========================
 function getCardValue(text) {
   if (text.includes("+")) {
     let parts = text.split("+");
@@ -116,7 +118,8 @@ function getCardValue(text) {
   return Number(text);
 }
 
-function resetGame() {
+// ==========================
+function resetBoard() {
   slots.forEach(slot => {
     slot.textContent = "";
     slot.classList.remove("correct", "wrong");
@@ -131,7 +134,34 @@ function resetGame() {
 }
 
 // ==========================
-// TARKISTUS
+// GAME OVER SCREEN
+// ==========================
+function endGame() {
+  feedbackBox.style.display = "block";
+
+  feedbackScore.innerHTML = `
+    🎉 Peli ohi! <br>
+    Kokonaispisteet: <b>${totalPoints} / ${maxRounds * 10}</b>
+  `;
+
+  feedbackEmoji.textContent = totalPoints > 70 ? "🤩" :
+                              totalPoints > 50 ? "😄" :
+                              totalPoints > 30 ? "🙂" : "😢";
+
+  // nappi etusivulle
+  let btn = document.createElement("button");
+  btn.textContent = "Takaisin etusivulle";
+  btn.style.marginTop = "10px";
+
+  btn.onclick = () => {
+    window.location.href = "index.html";
+  };
+
+  feedbackBox.appendChild(btn);
+}
+
+// ==========================
+// CHECK
 // ==========================
 checkButton.addEventListener("click", () => {
 
@@ -166,14 +196,15 @@ checkButton.addEventListener("click", () => {
   }
 
   let points = Math.round((correctCount / slots.length) * 10);
+  totalPoints += points;
 
-  // SCORE SAVE
+  // save best score
   loadScores();
-  setScore(3, points);
+  setScore(3, totalPoints);
 
-  // FEEDBACK BOX
+  // feedback
   feedbackBox.style.display = "block";
-  feedbackScore.textContent = `${points}/10 pistettä`;
+  feedbackScore.textContent = `Kierros ${round}: ${points}/10`;
 
   if (points <= 1) feedbackEmoji.textContent = "😢";
   else if (points <= 2) feedbackEmoji.textContent = "😞";
@@ -184,8 +215,17 @@ checkButton.addEventListener("click", () => {
   else if (points <= 8) feedbackEmoji.textContent = "😄";
   else feedbackEmoji.textContent = "🤩";
 
+  // seuraava kierros
   setTimeout(() => {
-    resetGame();
+
+    round++;
+
+    if (round > maxRounds) {
+      endGame();
+    } else {
+      resetBoard();
+    }
+
   }, 1500);
 });
 
