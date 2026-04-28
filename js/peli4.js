@@ -47,7 +47,6 @@ slots.forEach(slot => {
   slot.addEventListener("drop", () => {
     if (!draggedCard) return;
 
-    // jos slotissa jo kortti → palauta vanha
     if (slot.textContent !== "") {
       cards.forEach(card => {
         if (card.textContent === slot.textContent) {
@@ -62,7 +61,7 @@ slots.forEach(slot => {
 });
 
 // ==========================
-// POISTA SLOTISTA (CLICK)
+// POISTA SLOTISTA
 // ==========================
 slots.forEach(slot => {
   slot.addEventListener("click", () => {
@@ -81,7 +80,7 @@ slots.forEach(slot => {
 });
 
 // ==========================
-// RANDOM CARDS (NO DUPES)
+// RANDOM CARDS
 // ==========================
 function generateCards() {
   let values = new Set();
@@ -140,21 +139,25 @@ function resetBoard() {
 }
 
 // ==========================
-// GAME OVER SCREEN
+// GAME OVER
 // ==========================
 function endGame() {
   feedbackBox.style.display = "block";
 
+  let average = Math.round(totalPoints / maxRounds);
+
   feedbackScore.innerHTML = `
     🎉 Peli ohi! <br>
-    Kokonaispisteet: <b>${totalPoints} / ${maxRounds * 10}</b>
+    Keskiarvo: <b>${average} / 10</b>
   `;
 
-  feedbackEmoji.textContent = totalPoints > 70 ? "🤩" :
-                              totalPoints > 50 ? "😄" :
-                              totalPoints > 30 ? "🙂" : "😢";
+  feedbackEmoji.textContent =
+    average >= 9 ? "🤩" :
+    average >= 7 ? "😄" :
+    average >= 5 ? "🙂" :
+    average >= 3 ? "😐" :
+    "😢";
 
-  // nappi etusivulle
   let btn = document.createElement("button");
   btn.textContent = "Takaisin etusivulle";
   btn.style.marginTop = "10px";
@@ -204,11 +207,9 @@ checkButton.addEventListener("click", () => {
   let points = Math.round((correctCount / slots.length) * 10);
   totalPoints += points;
 
-  // save best score
   loadScores();
-  setScore(3, totalPoints);
+  setScore(3, Math.round(totalPoints / round));
 
-  // feedback
   feedbackBox.style.display = "block";
   feedbackScore.textContent = `Kierros ${round}: ${points}/10`;
 
@@ -221,7 +222,6 @@ checkButton.addEventListener("click", () => {
   else if (points <= 8) feedbackEmoji.textContent = "😄";
   else feedbackEmoji.textContent = "🤩";
 
-  // seuraava kierros
   setTimeout(() => {
 
     round++;
