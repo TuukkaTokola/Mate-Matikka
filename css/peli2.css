@@ -164,6 +164,12 @@ background-size: cover;
 #musicBtn:hover {
   background: rgba(0,0,0,0.8);
 }
+
+#finalScore {
+  font-size: 35px;
+  margin-top: 10px;
+}
+
 .question-fish {
   width: 500px;
   animation: float 3s ease-in-out infinite;
@@ -239,5 +245,37 @@ background-size: cover;
 
 .back-btn:hover,
 .end-btn:hover {
+  transform: scale(1.1);
+}
+
+.game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  z-index: 999;
+}
+
+.game-over button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  background: orange;
+  color: white;
+  cursor: pointer;
+}
+
+.game-over button:hover {
+  background: #ff9900;
   transform: scale(1.1);
 }

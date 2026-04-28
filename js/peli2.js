@@ -111,6 +111,9 @@ function goHome() {
 }
 
 function endGame() {
-alert("Peli päättyi! Pisteesi:: " + score);
-  window.location.href = "index.html";
+  document.getElementById("gameOverScreen").style.display = "flex";
+  document.getElementById("finalScore").innerText = "Pisteesi: " + score;
+
+  let stars = "⭐ ⭐ ⭐";
+  document.getElementById("starsResult").innerText = stars;
 }
