@@ -275,6 +275,11 @@ background-size: cover;
   cursor: pointer;
 }
 
+#starsResult {
+  font-size: 40px;
+  margin-top: 10px;
+}
+
 .game-over button:hover {
   background: #ff9900;
   transform: scale(1.1);

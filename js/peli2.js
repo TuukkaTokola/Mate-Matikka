@@ -14,6 +14,7 @@ function toggleMusic() {
   }
 }
 
+//  SOUND EFFECTS
 let correctSound = new Audio("sounds/correct.mp3");
 let wrongSound = new Audio("sounds/wrong.mp3");
 
@@ -27,25 +28,42 @@ function playWrongSound() {
   wrongSound.play();
 }
 
+// GAME VARIABLES
 let score = 0;
 let correctAnswer;
 
+let questionCount = 0;
+let maxQuestions = 10;
+
+// uusi kysymys
 function newQuestion() {
+
+  // peli loppu 10 kysymystä
+  if (questionCount >= maxQuestions) {
+    endGame();
+    return;
+  }
+
+  questionCount++;
+
   let a = Math.floor(Math.random() * 11);
   let b = Math.floor(Math.random() * (a + 1));
 
   correctAnswer = a - b;
 
   document.getElementById("question").innerText = a + " - " + b + " = ?";
+
+  // glow effectii
   let questionFish = document.querySelector(".question-fish");
+  if (questionFish) {
+    questionFish.classList.add("glow");
 
-if (questionFish) {
-  questionFish.classList.add("glow");
+    setTimeout(() => {
+      questionFish.classList.remove("glow");
+    }, 600);
+  }
 
-  setTimeout(() => {
-    questionFish.classList.remove("glow");
-  }, 600);
-}
+  // vastaukset 
   let answers = [correctAnswer];
 
   while (answers.length < 4) {
@@ -61,14 +79,16 @@ if (questionFish) {
 
   fish.forEach((f, i) => {
     let span = f.querySelector("span");
-    if (span) {
+    if (span && answers[i] !== undefined) {
       span.innerText = answers[i];
     }
   });
 }
 
+// tarkista vastaus
 function checkAnswer(element) {
   startMusic();
+
   let value = parseInt(element.querySelector("span").innerText);
 
   document.querySelectorAll(".fish").forEach(f => {
@@ -78,24 +98,10 @@ function checkAnswer(element) {
   if (value === correctAnswer) {
     element.classList.add("correct");
     score++;
-
-    if (typeof playCorrectSound === "function") {
-      playCorrectSound();
-    }
-
-    if (score >= 10) {
-      setTimeout(() => {
-        endGame();
-      }, 500);
-      return;
-    }
-
+    playCorrectSound();
   } else {
     element.classList.add("wrong");
-
-    if (typeof playWrongSound === "function") {
-      playWrongSound();
-    }
+    playWrongSound();
   }
 
   document.getElementById("score").innerText = "Pisteet: " + score;
@@ -104,16 +110,29 @@ function checkAnswer(element) {
     newQuestion();
   }, 1000);
 }
-newQuestion(); 
+
+// peli loppu
+function endGame() {
+  document.getElementById("gameOverScreen").style.display = "flex";
+  document.getElementById("finalScore").innerText = "Pisteesi: " + score;
+
+  let stars = "";
+
+  if (score <= 3) {
+    stars = "⭐";
+  } else if (score <= 6) {
+    stars = "⭐⭐";
+  } else {
+    stars = "⭐⭐⭐";
+  }
+
+  document.getElementById("starsResult").innerText = stars;
+}
+
 
 function goHome() {
   window.location.href = "index.html";
 }
 
-function endGame() {
-  document.getElementById("gameOverScreen").style.display = "flex";
-  document.getElementById("finalScore").innerText = "Pisteesi: " + score;
-
-  let stars = "⭐ ⭐ ⭐";
-  document.getElementById("starsResult").innerText = stars;
-}
+// START GAME
+newQuestion();
