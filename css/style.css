@@ -172,15 +172,15 @@ main {
 
 /* ===== HERO IMAGE ===== */
 .hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-right: -350px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-image img {
-  width: min(650px, 42vw);
+  width: clamp(360px, 38vw, 680px);
   height: auto;
   display: block;
 }
@@ -208,12 +208,13 @@ main {
   }
 
   .hero-image {
-    justify-content: center;
-  }
+  position: static;
+  pointer-events: auto;
+}
 
   .hero-image img {
-    width: min(420px, 80vw);
-  }
+  width: min(420px, 80vw);
+}
 }
 #reset-scores-btn {
   margin-top: 20px;
