@@ -2,9 +2,7 @@ let bgMusic = new Audio("sounds/bg.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.4;
 
-window.onload = function () {
-  loadScores();
-};
+
 
 function startMusic() {
   bgMusic.play();
@@ -93,11 +91,10 @@ function newQuestion() {
 function checkAnswer(element) {
   startMusic();
 
-  let value = parseInt(element.querySelector("span").innerText);
+  let value = Number(element.querySelector("span").innerText);
 
   let allFish = document.querySelectorAll(".fish");
 
-  // 
   allFish.forEach(f => {
     f.classList.remove("correct", "wrong");
   });
@@ -111,27 +108,23 @@ function checkAnswer(element) {
     playWrongSound();
   }
 
-  document.getElementById("score").innerText = "Pisteet: " + score + " / " + maxQuestions;
+  document.getElementById("score").innerText =
+    "Pisteet: " + score + " / " + maxQuestions;
 
   setTimeout(() => {
-
-    // here i REMOVED THE COLORS  AFTER showing feedback
     allFish.forEach(f => {
       f.classList.remove("correct", "wrong");
     });
 
     newQuestion();
-
   }, 1000);
 }
 
 // peli loppu
 function endGame() {
-  if (score > scores[1]) {
-    setScore(1, score);
-  } 
+  
   document.getElementById("gameOverScreen").style.display = "flex";
-  document.getElementById("finalScore").innerText = "Pisteesi: " + score + " / " + maxQuestions;
+  document.getElementById("finalScore").innerText = "Pisteesi: " + score + "/" + maxQuestions;
 
   let stars = "";
 
