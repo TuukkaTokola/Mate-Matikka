@@ -262,13 +262,3 @@ main {
 #reset-scores-btn:hover {
   opacity: 0.9;
 }
-.score-box .score-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100%;
-}
-
-.score-box #reset-scores-btn {
-  margin-left: auto !important;
-}

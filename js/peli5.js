@@ -17,6 +17,13 @@ const messageTitle = document.getElementById("message-title");
 const messageText = document.getElementById("message-text");
 const retryBtn = document.getElementById("retry-btn");
 
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+const timeoutSound = new Audio("sounds/timeout.mp3");
+correctSound.volume = 0.4;
+wrongSound.volume = 0.4;
+timeoutSound.volume = 0.4;
+
 function startTimer() {
   clearInterval(timer);
   timeLeft = 60;
@@ -80,11 +87,17 @@ function handleAnswer(button, value) {
   });
 
   if (value === currentAnswer) {
+    correctSound.currentTime = 0;
+    correctSound.play();
+    
     score++;
     streak++;
     feedback.textContent = "Oikein! 🎯";
     button.classList.add("correct", "hit");
   } else {
+    wrongSound.currentTime = 0;
+    wrongSound.play();
+
     streak = 0;
     feedback.textContent = "Väärin!";
     button.classList.add("wrong", "hit");
@@ -97,6 +110,9 @@ function handleAnswer(button, value) {
 }
 
 function handleTimeout() {
+  timeoutSound.currentTime = 0;
+  timeoutSound.play();
+
   streak = 0;
   streakEl.textContent = streak;
 
