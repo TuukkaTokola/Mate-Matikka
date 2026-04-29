@@ -95,14 +95,14 @@ function handleAnswer(button, value) {
 
     score++;
     streak++;
-    feedback.textContent = "Oikein! ";
+    feedback.textContent = "Napakymppi!";
     button.classList.add("correct", "hit");
   } else {
     wrongSound.currentTime = 0;
     wrongSound.play();
 
     streak = 0;
-    feedback.textContent = "Väärin!";
+    feedback.textContent = "Huti!";
     button.classList.add("wrong", "hit");
   }
 
