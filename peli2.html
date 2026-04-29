@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Mate Matikka - Peli 2</title>
+  <link rel="stylesheet" href="css/peli2.css">
+</head>
+
+<body>
+  <div id="gameOverScreen" class="game-over">
+  <h1>🎉 Peli päättyi!</h1>
+  <p id="finalScore"></p>
+    <div id="starsResult"></div>
+  <button onclick="goHome()">Takaisin etusivulle</button>
+</div>
+
+<img src="images/Logo.png" class="logo">
+
+<div class="bubbles">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="question-box">
+  <img src="images/fish-question.png" class="question-fish">
+  <div id="question" class="question-text">6 - 2 = ?</div>
+</div>
+
+<div class="answers">
+  <div class="fish" onclick="checkAnswer(this)">
+    <img src="images/fish1peli2.png">
+    <span>0</span>
+  </div>
+
+  <div class="fish" onclick="checkAnswer(this)">
+    <img src="images/fish2peli2.png">
+    <span>0</span>
+  </div>
+
+  <div class="fish" onclick="checkAnswer(this)">
+    <img src="images/fish3peli2.png">
+    <span>0</span>
+  </div>
+
+  <div class="fish" onclick="checkAnswer(this)">
+    <img src="images/fish4peli2.png">
+    <span>0</span>
+  </div>
+</div>
+
+<div class="score-box">
+  <div class="stars">⭐ ⭐ ⭐</div>
+  <div id="score">Pisteet: 0</div>
+</div>
+
+<button onclick="goHome()" class="back-btn">🏠 Etusivu</button>
+<button onclick="endGame()" class="end-btn">❌ Lopeta </button>
+
+<button onclick="toggleMusic()" id="musicBtn">🔊</button>
+
+<script src="js/scores.js"></script>
+
+
+<script src="js/peli2.js"></script>
+
+</body>
+</html>
