@@ -277,3 +277,20 @@ main.game-container {
 .hidden {
   display: none !important;
 }
+
+.arrow {
+  position: absolute;
+  left: 8%;
+  bottom: 18%;
+  font-size: 2.8rem;
+  color: #F5E27A;
+  text-shadow: 2px 2px 0 #222222;
+  z-index: 150;
+  pointer-events: none;
+  transform: rotate(-20deg);
+  transition: left 0.45s ease-in-out, top 0.45s ease-in-out;
+}
+
+.arrow.hidden {
+  display: none;
+}

@@ -82,6 +82,8 @@ function handleAnswer(button, value) {
   clearInterval(timer);
   questions++;
 
+  shootArrow(button);
+
   answers.forEach(btn => {
     btn.disabled = true;
   });
@@ -89,7 +91,7 @@ function handleAnswer(button, value) {
   if (value === currentAnswer) {
     correctSound.currentTime = 0;
     correctSound.play();
-    
+
     score++;
     streak++;
     feedback.textContent = "Oikein! 🎯";
@@ -163,4 +165,35 @@ retryBtn.onclick = () => {
 };
 
 gameMessage.classList.add("hidden");
+
+function shootArrow(targetButton) {
+  const arrow = document.getElementById("arrow");
+  const gameArea = document.querySelector(".game-container");
+
+  const targetRect = targetButton.getBoundingClientRect();
+  const areaRect = gameArea.getBoundingClientRect();
+
+  // Lasketaan mihin nuoli menee
+  const targetX = targetRect.left - areaRect.left + targetRect.width / 2;
+  const targetY = targetRect.top - areaRect.top + targetRect.height / 2;
+
+  // Näytä nuoli
+  arrow.classList.remove("hidden");
+
+  // Reset lähtöpaikka
+  arrow.style.left = "5%";
+  arrow.style.top = "95%";
+
+  // Pieni delay jotta transition toimii
+  setTimeout(() => {
+    arrow.style.left = `${targetX}px`;
+    arrow.style.top = `${targetY}px`;
+  }, 50);
+
+  // Piilota lopuksi
+  setTimeout(() => {
+    arrow.classList.add("hidden");
+  }, 600);
+}
+
 newQuestion();
