@@ -82,19 +82,20 @@ function handleAnswer(button, value) {
   clearInterval(timer);
   questions++;
 
-  shootArrow(button);
+  const isCorrect = value === currentAnswer;
+  shootArrow(button, isCorrect);
 
   answers.forEach(btn => {
     btn.disabled = true;
   });
 
-  if (value === currentAnswer) {
+  if (isCorrect) {
     correctSound.currentTime = 0;
     correctSound.play();
 
     score++;
     streak++;
-    feedback.textContent = "Oikein! 🎯";
+    feedback.textContent = "Oikein! ";
     button.classList.add("correct", "hit");
   } else {
     wrongSound.currentTime = 0;
@@ -166,34 +167,38 @@ retryBtn.onclick = () => {
 
 gameMessage.classList.add("hidden");
 
-function shootArrow(targetButton) {
+function shootArrow(targetButton, isCorrect) {
   const arrow = document.getElementById("arrow");
   const gameArea = document.querySelector(".game-container");
 
   const targetRect = targetButton.getBoundingClientRect();
   const areaRect = gameArea.getBoundingClientRect();
 
-  // Lasketaan mihin nuoli menee
-  const targetX = targetRect.left - areaRect.left + targetRect.width / 2;
-  const targetY = targetRect.top - areaRect.top + targetRect.height / 2;
+  let targetX = targetRect.left - areaRect.left + targetRect.width / 2;
+  let targetY = targetRect.top - areaRect.top + targetRect.height / 2;
 
-  // Näytä nuoli
+  targetX -= 18;
+  targetY -= 10;
+
+  if (!isCorrect) {
+  targetX += 140;
+  targetY -= 130;
+  }
+
   arrow.classList.remove("hidden");
 
-  // Reset lähtöpaikka
   arrow.style.left = "5%";
   arrow.style.top = "95%";
 
-  // Pieni delay jotta transition toimii
   setTimeout(() => {
     arrow.style.left = `${targetX}px`;
     arrow.style.top = `${targetY}px`;
   }, 50);
 
-  // Piilota lopuksi
   setTimeout(() => {
     arrow.classList.add("hidden");
-  }, 600);
+  }, 650);
 }
+
 
 newQuestion();
