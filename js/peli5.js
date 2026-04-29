@@ -17,9 +17,9 @@ const messageTitle = document.getElementById("message-title");
 const messageText = document.getElementById("message-text");
 const retryBtn = document.getElementById("retry-btn");
 
-const correctSound = new Audio("sounds/correct.mp3");
-const wrongSound = new Audio("sounds/wrong.mp3");
-const timeoutSound = new Audio("sounds/timeout.mp3");
+const correctSound = new Audio("sounds/acorrect.mp3");
+const wrongSound = new Audio("sounds/awrong.mp3");
+const timeoutSound = new Audio("sounds/atimeout.mp3");
 correctSound.volume = 0.4;
 wrongSound.volume = 0.4;
 timeoutSound.volume = 0.4;
