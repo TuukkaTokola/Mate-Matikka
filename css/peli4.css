@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
   padding: 24px;
 }
-git push origin feature/peli4
+
 .top-banner {
   max-width: 1100px;
   margin: 0 auto 20px;
@@ -202,4 +202,67 @@ git push origin feature/peli4
 .back-button:hover {
   transform: scale(1.05);
   background: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+
+  .top-banner h1 {
+    font-size: 1.8rem;
+  }
+
+  .instruction-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .number-card {
+    min-width: 60px;
+    padding: 12px;
+    font-size: 1.3rem;
+  }
+
+  .answer-slot {
+    width: 70px;
+    height: 55px;
+    font-size: 1.2rem;
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+  }
+
+  .game-board {
+    padding: 20px 10px 40px;
+  }
+
+  .cards {
+    gap: 12px;
+  }
+
+  .answer-row {
+    gap: 6px;
+  }
+
+  .check-button {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+  }
+
+  /* tärkeä fix */
+  .back-button {
+    position: static;
+    display: block;
+    margin: 0 auto 15px;
+  }
+}
+
+@media (max-width: 900px) {
+
+  .number-card {
+    min-width: 75px;
+    font-size: 1.6rem;
+  }
+
+  .answer-slot {
+    width: 90px;
+  }
 }
