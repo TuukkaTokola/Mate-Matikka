@@ -177,7 +177,7 @@ function shootArrow(targetButton, isCorrect) {
   let targetX = targetRect.left - areaRect.left + targetRect.width / 2;
   let targetY = targetRect.top - areaRect.top + targetRect.height / 2;
 
-  targetX -= 18;
+  targetX -= 70;
   targetY -= 10;
 
   if (!isCorrect) {
