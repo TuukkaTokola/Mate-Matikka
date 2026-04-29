@@ -17,6 +17,13 @@ const messageTitle = document.getElementById("message-title");
 const messageText = document.getElementById("message-text");
 const retryBtn = document.getElementById("retry-btn");
 
+const correctSound = new Audio("sounds/correct.mp3");
+const wrongSound = new Audio("sounds/wrong.mp3");
+const timeoutSound = new Audio("sounds/timeout.mp3");
+correctSound.volume = 0.4;
+wrongSound.volume = 0.4;
+timeoutSound.volume = 0.4;
+
 function startTimer() {
   clearInterval(timer);
   timeLeft = 60;
@@ -75,18 +82,27 @@ function handleAnswer(button, value) {
   clearInterval(timer);
   questions++;
 
+  const isCorrect = value === currentAnswer;
+  shootArrow(button, isCorrect);
+
   answers.forEach(btn => {
     btn.disabled = true;
   });
 
-  if (value === currentAnswer) {
+  if (isCorrect) {
+    correctSound.currentTime = 0;
+    correctSound.play();
+
     score++;
     streak++;
-    feedback.textContent = "Oikein! 🎯";
+    feedback.textContent = "Napakymppi!";
     button.classList.add("correct", "hit");
   } else {
+    wrongSound.currentTime = 0;
+    wrongSound.play();
+
     streak = 0;
-    feedback.textContent = "Väärin!";
+    feedback.textContent = "Huti!";
     button.classList.add("wrong", "hit");
   }
 
@@ -97,6 +113,9 @@ function handleAnswer(button, value) {
 }
 
 function handleTimeout() {
+  timeoutSound.currentTime = 0;
+  timeoutSound.play();
+
   streak = 0;
   streakEl.textContent = streak;
 
@@ -147,4 +166,39 @@ retryBtn.onclick = () => {
 };
 
 gameMessage.classList.add("hidden");
+
+function shootArrow(targetButton, isCorrect) {
+  const arrow = document.getElementById("arrow");
+  const gameArea = document.querySelector(".game-container");
+
+  const targetRect = targetButton.getBoundingClientRect();
+  const areaRect = gameArea.getBoundingClientRect();
+
+  let targetX = targetRect.left - areaRect.left + targetRect.width / 2;
+  let targetY = targetRect.top - areaRect.top + targetRect.height / 2;
+
+  targetX -= 70;
+  targetY -= 10;
+
+  if (!isCorrect) {
+  targetX += 140;
+  targetY -= 130;
+  }
+
+  arrow.classList.remove("hidden");
+
+  arrow.style.left = "5%";
+  arrow.style.top = "95%";
+
+  setTimeout(() => {
+    arrow.style.left = `${targetX}px`;
+    arrow.style.top = `${targetY}px`;
+  }, 50);
+
+  setTimeout(() => {
+    arrow.classList.add("hidden");
+  }, 650);
+}
+
+
 newQuestion();

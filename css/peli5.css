@@ -277,3 +277,35 @@ main.game-container {
 .hidden {
   display: none !important;
 }
+
+.arrow {
+  position: absolute;
+  left: 5%;
+  top: 95%;
+  z-index: 150;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  transform: rotate(-20deg);
+  transition: left 0.45s ease-in-out, top 0.45s ease-in-out;
+}
+
+.arrow-shaft {
+  width: 70px;
+  height: 7px;
+  background-color: #8B4513;
+  border-radius: 999px;
+  box-shadow: 1px 1px 0 #222222;
+}
+
+.arrow-head {
+  color: #E53935;
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-left: -6px;
+  text-shadow: 1px 1px 0 #222222;
+}
+
+.arrow.hidden {
+  display: none;
+}

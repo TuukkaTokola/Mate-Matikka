@@ -172,21 +172,21 @@ main {
 
 /* ===== HERO IMAGE ===== */
 .hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-right: -350px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-image img {
-  width: min(650px, 42vw);
+  width: clamp(360px, 38vw, 680px);
   height: auto;
   display: block;
 }
 
 /* ===== MOBILE ===== */
-@media (max-width: 900px) {
+@media (max-width: 900px) 
   .home-page {
     min-height: auto;
     overflow: auto;
@@ -208,19 +208,53 @@ main {
   }
 
   .hero-image {
-    justify-content: center;
-  }
+  position: static;
+  pointer-events: auto;
+}
 
   .hero-image img {
-    width: min(420px, 80vw);
-  }
+  width: min(420px, 80vw);
 }
+
+
+.emoji-points,
+.emoji-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.emoji-points {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.emoji-row {
+  font-size: 1.5rem;
+}
+
+.emoji-points span,
+.emoji-row span {
+  display: inline-block;
+  min-width: 48px;
+  text-align: center;
+}
+
+.score-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
 #reset-scores-btn {
-  margin-top: 20px;
-  padding: 12px 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: none;
-  border-radius: 12px;
   background-color: #F5E27A;
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
 }
